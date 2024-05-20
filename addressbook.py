@@ -3,9 +3,9 @@ from collections import UserDict
 
 class AddressBook(UserDict):
     def add_record(self, record):
-        if record.name in self.data: 
-            raise KeyError(f"{record.name} already in contact book")
-        self.data[record.name] = record
+        if record.name.value in self.data: 
+            raise KeyError(f"{record.name.value} already in contact book")
+        self.data[record.name.value] = record
     
     def find(self, name):
         record = self.data.get(name)

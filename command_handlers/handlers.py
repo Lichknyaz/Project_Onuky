@@ -88,6 +88,18 @@ def show_birthday(args, book):
         else: 
             return "Contact dont have birthday date"
 
+@input_error
+def add_user_email(args, book):
+    if len(args) != 2: 
+        return "Wrong number of arguments"
+    name, email = args 
+    contact = book.find(name)
+    if contact is None: 
+        return "Cant find contact"
+    else: 
+        contact.add_email(email)
+        return "Email added"
+
 
 
 
