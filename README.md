@@ -1,1 +1,1 @@
-# Project_Onuky
+# goit-pycore-hw-08
