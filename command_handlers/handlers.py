@@ -100,10 +100,12 @@ def add_user_email(args, book):
         contact.add_email(email)
         return "Email added"
     
-
+@input_error
+def upcoming_birthdays(args, book):
+    days, *_ = args
+    upcoming_bdays = book.get_upcoming_birthdays(days)
+    str_ = ''
+    for bday in upcoming_bdays:
+        str_ += f"{bday}" + '\n'
+    return str_
     
-
-
-
-
-

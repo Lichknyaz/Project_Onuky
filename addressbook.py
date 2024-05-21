@@ -19,24 +19,39 @@ class AddressBook(UserDict):
         lines = [str(record) for record in self.data.values()]
         return "\n".join(lines)
 
-    def upcoming_birthdays(self): 
+    def get_congrat_day(self, date):
+        weekday = date.weekday()
+        congrat_day = date
+
+        if(weekday == 5):
+            congrat_day = date + timedelta(days=2)
+            
+        if(weekday == 6):
+            congrat_day = date + timedelta(days=1)
+            
+        return congrat_day.strftime("%d.%m.%Y")
+
+
+    def get_upcoming_birthdays(self, days):
         current_date = datetime.today().date()
-        upcoming_birthdays = []
-        message = ""
+        list_of_upcoming_bdays = []
+        contacts = self.data
+        for name, record in contacts.items():
+            user_obj = {}
+            user_obj["name"] = name
+            if(record.birthday != None):
+                bday_obj = record.birthday.value.date()
+                bday_day = bday_obj.day
+                bday_month = bday_obj.month
 
-        for name, record in self.data.items():
-            if record.birthday:
-                user_birthday = datetime.strptime(str(record.birthday), "%d.%m.%Y").date().replace(year=current_date.year)
+                bday_this_year = datetime(
+                year=current_date.year, month=bday_month, day=bday_day).date()
+                
+                diff = bday_this_year - current_date
+                time_delta = timedelta(int(days))
 
-                days_before_birthday = (user_birthday - current_date).days
-                if 0 <= days_before_birthday < 7: 
-                    upcoming_birthdays.append(
-                        {
-                          f'name': name, 'congratulation_date': user_birthday.strftime('%d.%m.%Y')
-                        }
-                    )              
-        for birthday in upcoming_birthdays:
-            message += f"{birthday['name']}: {birthday['congratulation_date']} \n"
-        
-        return message
+                if (diff <= time_delta):
+                    list_of_upcoming_bdays.append(f"{name} has birthday on {self.get_congrat_day(bday_this_year)}")
+
+        return list_of_upcoming_bdays
 

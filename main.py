@@ -48,7 +48,7 @@ def handler(command, book, *args):
             print(show_birthday(args, book))
 
         elif command in birthdays:
-            print(book.upcoming_birthdays())
+            print(upcoming_birthdays(args, book))
 
         else:
             print("Invalid command.")
