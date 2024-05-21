@@ -1,7 +1,6 @@
 import re
 from command_handlers.input_error import input_error
 from record import Record
-from addressbook import AddressBook
 
 @input_error
 def parse_input(user_input):
@@ -37,7 +36,7 @@ def change_contact(args, book) -> str:
             return "Contact updated"
         
 @input_error
-def remove_contact(args, book) -> str: 
+def remove_user_phone(args, book) -> str: 
     if len(args) != 2:
             return("Wrong number of arguments")
     else:
@@ -47,7 +46,7 @@ def remove_contact(args, book) -> str:
             return "Cant find contact"
         else: 
             contact.remove_phone(phone)
-            return "Contact deleted"
+            return "Phone number deleted"
         
 
 @input_error
@@ -88,6 +87,17 @@ def show_birthday(args, book):
         else: 
             return "Contact dont have birthday date"
 
+    
+@input_error
+def upcoming_birthdays(args, book):
+    days, *_ = args
+    upcoming_bdays = book.get_upcoming_birthdays(days)
+    str_ = ''
+    for bday in upcoming_bdays:
+        str_ += f"{bday}" + '\n'
+    return str_
+
+
 @input_error
 def add_user_email(args, book):
     if len(args) != 2: 
@@ -101,11 +111,58 @@ def add_user_email(args, book):
         return "Email added"
     
 @input_error
-def upcoming_birthdays(args, book):
-    days, *_ = args
-    upcoming_bdays = book.get_upcoming_birthdays(days)
-    str_ = ''
-    for bday in upcoming_bdays:
-        str_ += f"{bday}" + '\n'
-    return str_
+def change_user_email(args, book):
+    if len(args) != 2: 
+        return "Wrong number of arguments"
+    name, email = args 
+    contact = book.find(name)
+    if contact is None: 
+        return "Cant find contact"
+    else: 
+        contact.edit_email(email)
+        return "Email updated"
     
+@input_error
+def delete_user_email(args, book):
+    if len(args) != 2: 
+        return "Wrong number of arguments"
+    name, email = args 
+    contact = book.find(name)
+    if contact is None: 
+        return "Cant find contact"
+    else: 
+        contact.delete_email(email)
+        return "Email deleted"
+    
+@input_error
+def remove_user_contact(args, book):
+    if len(args) != 1: 
+        return "Wrong number of arguments"
+    name = args[0] 
+    contact = book.find(name)
+    if contact is None: 
+        return "Cant find contact"
+    else: 
+        book.delete(name)
+        return "Contact removed"
+
+@input_error
+def find(args, book):
+    if len(args) != 1: 
+        return "Wrong number of arguments"
+    
+    search_item = args[0]
+    contact_founded = False
+    record = ""
+
+    for key, value in book.items():
+        if search_item in f"{value}": 
+            record += f"\n {book.find(key)} \n"
+            contact_founded = True
+    if not contact_founded:
+        raise Exception("Cant find anything")
+
+    return record
+
+    
+ 

@@ -7,11 +7,16 @@ add_command = ["add"]
 change_command = ["change"]
 get_all_contacts_command = ["all"]
 get_contact_command = ["phone"]
-delete_command = ["delete"]
+remove_phone = ["delete"]
 add_user_birthday = ["add-birthday"]
 get_user_birthday = ["show-birthday"]
 birthdays = ["birthdays"]
 add_email = ["add-email"]
+change_email = ["change-email"]
+remove_email = ["delete-email"]
+remove_contact = ['remove-contact']
+find_command = ['find']
+
 
 
 def handler(command, book, *args):
@@ -26,8 +31,8 @@ def handler(command, book, *args):
         elif command in add_command:
             print(add_contact(args, book))
 
-        elif command in delete_command:
-            print(remove_contact(args, book))
+        elif command in remove_phone:
+            print(remove_user_phone(args, book))
 
         elif command in change_command: 
             print(change_contact(args, book))
@@ -40,6 +45,12 @@ def handler(command, book, *args):
 
         elif command in add_email:
             print(add_user_email(args, book))
+
+        elif command in change_email:
+            print(change_user_email(args, book))
+
+        elif command in remove_email:
+            print(delete_user_email(args, book))
         
         elif command in add_user_birthday:
             print(add_birthday(args, book))
@@ -49,6 +60,12 @@ def handler(command, book, *args):
 
         elif command in birthdays:
             print(upcoming_birthdays(args, book))
+        
+        elif command in remove_contact:
+            print(remove_user_contact(args, book))
+        
+        elif command in find_command: 
+            print(find(args, book))
 
         else:
             print("Invalid command.")

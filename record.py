@@ -35,9 +35,14 @@ class Record:
             self.phones.append(Phone(number))
 
     def remove_phone(self, number: int): 
+        contact_founded = False
         for phone in self.phones: 
             if phone.value == number:
                 self.phones.remove(phone)
+                contact_founded = True
+                break
+        if not contact_founded:
+            raise Exception("Cant find contact phone")
 
     def edit_phone(self, old_phone, new_phone):
         contact_founded = False
@@ -61,5 +66,17 @@ class Record:
 
     def add_email(self, email): 
         self.email = Email(email)
- 
- 
+
+    def edit_email(self, email):
+        self.email = Email(email) 
+
+    def delete_email(self, email):
+        contact_founded = False
+
+        if self.email.value == email: 
+           self.email = None 
+           contact_founded = True
+
+        if not contact_founded:
+            raise Exception("Cant find contact email")
+
