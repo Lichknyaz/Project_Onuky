@@ -112,6 +112,18 @@ def add_user_address(args, book):
         contact.add_address(address)
         return "Address added"
     
+@input_error
+def change_user_address(args, book):
+    if len(args) < 2: 
+        return "Wrong number of arguments"
+    name, *address = args 
+    contact = book.find(name)
+    if contact is None: 
+        return "Cant find contact"
+    else: 
+        contact.add_address(address)
+        return "Address updated"
+    
 
     
 

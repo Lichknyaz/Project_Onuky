@@ -10,6 +10,7 @@ class Record:
         self.phones = []
         self.birthday = None
         self.email = None
+        self.address = None
 
     def __str__(self):
         contact_full = f"Contact name: {self.name.value}"

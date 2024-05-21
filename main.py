@@ -56,7 +56,7 @@ def handler(command, book, *args):
             print(add_user_address(args,book))
         
         elif command in change_address:
-            print(add_user_address(args,book))
+            print(change_user_address(args,book))
 
         else:
             print("Invalid command.")
