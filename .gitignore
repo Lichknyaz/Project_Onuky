@@ -164,5 +164,5 @@ cython_debug/
 addressbook.pkl
 
 # Command handlers
-command_handlers/
-command_handlers/
+command_handlers/__pycache__/
+
