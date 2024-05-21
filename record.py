@@ -2,6 +2,7 @@ from name import Name
 from phone import Phone
 from birthday import Birthday
 from user_email import Email
+from address import Address
 
 class Record:
     def __init__(self, name):
@@ -24,6 +25,10 @@ class Record:
         if self.email: 
             email = f", email: {self.email.value}"
             contact_full += email
+        
+        if self.address:
+            address = f", address: {self.address.value}"
+            contact_full += address
 
         return contact_full
 
@@ -62,4 +67,5 @@ class Record:
     def add_email(self, email): 
         self.email = Email(email)
  
- 
+    def add_address(self, address):
+        self.address = Address(address)
