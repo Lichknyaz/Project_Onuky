@@ -56,8 +56,15 @@ class Record:
             if phone.value == number: 
                 return phone
             
-    def add_birthday(self, date): 
+    def manage_birthday(self, date): 
         self.birthday = Birthday(date)
+
+    # def edit_birthday(self, date):
+    #     if self.birthday:
+    #         self.birthday = date
+    #     else:
+
+
 
     def add_email(self, email): 
         self.email = Email(email)

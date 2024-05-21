@@ -10,6 +10,7 @@ get_contact_command = ["phone"]
 delete_command = ["delete"]
 add_user_birthday = ["add-birthday"]
 get_user_birthday = ["show-birthday"]
+change_user_birthday = ["change-birthday"]
 birthdays = ["birthdays"]
 add_email = ["add-email"]
 
@@ -42,10 +43,13 @@ def handler(command, book, *args):
             print(add_user_email(args, book))
         
         elif command in add_user_birthday:
-            print(add_birthday(args, book))
+            print(manage_birthday(args, book))
 
         elif command in get_user_birthday:
             print(show_birthday(args, book))
+
+        elif command in change_user_birthday:
+            print(manage_birthday(args, book))
 
         elif command in birthdays:
             print(upcoming_birthdays(args, book))

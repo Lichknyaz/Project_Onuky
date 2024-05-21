@@ -62,7 +62,7 @@ def show_phone(args, book) -> str:
         return contact
 
 @input_error
-def add_birthday(args, book):
+def manage_birthday(args, book):
     if len(args) != 2:
         return "Wrong number of arguments"
     name, date = args
@@ -70,9 +70,12 @@ def add_birthday(args, book):
     if contact is None: 
         return "Cant find contact"
     else: 
-        contact.add_birthday(date)
-        return "Birthday added"
-
+        if contact.birthday:
+            contact.manage_birthday(date)
+            return "Birthday updated"
+        else:
+            contact.manage_birthday(date)
+            return "Birthday added"
 
 @input_error
 def show_birthday(args, book):
@@ -106,6 +109,5 @@ def upcoming_birthdays(args, book):
     upcoming_bdays = book.get_upcoming_birthdays(days)
     str_ = ''
     for bday in upcoming_bdays:
-        str_ += f"{bday}" + '\n'
+        str_ += f"{bday}; "
     return str_
-    

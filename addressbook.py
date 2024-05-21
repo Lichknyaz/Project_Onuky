@@ -19,18 +19,6 @@ class AddressBook(UserDict):
         lines = [str(record) for record in self.data.values()]
         return "\n".join(lines)
 
-    def get_congrat_day(self, date):
-        weekday = date.weekday()
-        congrat_day = date
-
-        if(weekday == 5):
-            congrat_day = date + timedelta(days=2)
-            
-        if(weekday == 6):
-            congrat_day = date + timedelta(days=1)
-            
-        return congrat_day.strftime("%d.%m.%Y")
-
 
     def get_upcoming_birthdays(self, days):
         current_date = datetime.today().date()
@@ -51,7 +39,7 @@ class AddressBook(UserDict):
                 time_delta = timedelta(int(days))
 
                 if (diff <= time_delta):
-                    list_of_upcoming_bdays.append(f"{name} has birthday on {self.get_congrat_day(bday_this_year)}")
+                    list_of_upcoming_bdays.append(f"{name} has birthday on {bday_this_year.strftime("%d.%m.%Y")}")
 
         return list_of_upcoming_bdays
 
