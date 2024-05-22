@@ -27,7 +27,7 @@ find_command = ["find"]
 add_note_command = ["add-note"]
 edit_note_command = ["change-note"]
 delete_note_command = ["delete-note"]
-add_tag_command = ["add-tag"]
+add_tag_command = ["add-tags"]
 
 def handler(command, book, *args):
         
