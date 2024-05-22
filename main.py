@@ -1,7 +1,8 @@
 from command_handlers.handlers import *
-from storage import *
+from libraries.storage import *
 from colorama import Fore, Style
-from help_info import massage
+from libraries.help_info import massage
+from libraries import *
 
 hello_commands = ["hello", "hi"]
 close_commands = ["close", "exit", "leave", "bye"]
