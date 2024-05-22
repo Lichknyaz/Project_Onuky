@@ -1,7 +1,7 @@
 from command_handlers.handlers import *
 from libraries.storage import *
 from colorama import Fore, Style
-from libraries.help_info import message
+from libraries.help_info import message, dict_of_commands
 from libraries import *
 from prompt_toolkit import prompt
 from libraries.wordcompleter import FirstWordCompleter
@@ -27,33 +27,6 @@ find_command = ["find"]
 add_note_command = ["add-note"]
 edit_note_command = ["change-note"]
 delete_note_command = ["delete-note"]
-
-
-dict_of_commands = {
-                    "hello": "Greetings",
-                    "exit": "Closing the bot",
-                    "add": "Adding contact - Enter [name [10-digit phone number]",
-                    "all": "Shows all contacts",
-                    "change-phone": "Changing phone number - Enter [name] [old number] [new number]",
-                    "phone": "Show contacts phone - Enter [name]",
-                    "delete-phone": "Delete contacts phone - Enter [name] [phone number]",
-                    "add-birthday": "Adding contacts birthday - Enter [name] [DD.MM.YYYY]",
-                    "show-birthday": "Show contacts birthday - Enter [name]",
-                    "birthdays": "Shows all birthdays in next defined days - Enter [days]",
-                    "add-email": "Adding contacts email - Enter [name] [email]",
-                    "change-email": "Changing contacts email - Enter [name] [new_email]",
-                    "delete-email": "Adding contacts email - Enter [name] [email]",
-                    "delete-contact": "Delete contact - Enter [name]",
-                    "find": "Find contact with any key - Enter [any key]",
-                    "add-address": "Adding contacts home address - Enter [name] [address in any format]",
-                    "change-address": "Changing contacts home address - Enter [name] [address in any format]",
-                    "add-note": "Adding note to contact - Enter [name] [note in any format]",
-                    "change-note": "Changing contacts note - Enter [name] [note in any format]",
-                    "delete-note": "Delete contacts note - Enter [name]",
-                    }
-
-
-
 
 def handler(command, book, *args):
         
