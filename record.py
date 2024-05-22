@@ -4,6 +4,7 @@ from birthday import Birthday
 from user_email import Email
 from address import Address
 from notes import Note
+from colorama import Fore, Style
 
 class Record:
     def __init__(self, name):
@@ -15,7 +16,7 @@ class Record:
         self.note = None
 
     def __str__(self):
-        contact_full = f"Contact name: {self.name.value}"
+        contact_full = f"\nContact name: {self.name.value}"
 
         if len(self.phones) != 0: 
             phones = f", phones: {'; '.join(p.value for p in self.phones)}"
@@ -42,7 +43,7 @@ class Record:
     def add_phone(self, number: str): 
         for phone in self.phones: 
              if phone.value == number: 
-                 raise KeyError(f"{phone.value} already in contact book")
+                 raise Exception(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} already in contact book")
         else:
             self.phones.append(Phone(number))
 
@@ -54,7 +55,7 @@ class Record:
                 contact_founded = True
                 break
         if not contact_founded:
-            raise Exception("Cant find contact phone")
+            raise Exception(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Cant find contact phone")
 
     def edit_phone(self, old_phone, new_phone):
         contact_founded = False
@@ -65,7 +66,7 @@ class Record:
                 contact_founded = True
                 break
         if not contact_founded:
-            raise Exception("Cant find contact phone")
+            raise Exception(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Cant find contact phone")
             
 
     def find_phone(self, number): 
@@ -83,14 +84,7 @@ class Record:
         self.email = Email(email) 
 
     def delete_email(self, name):
-        contact_founded = False
-
-        if self.name.value == name: 
            self.email = None 
-           contact_founded = True
-
-        if not contact_founded:
-            raise Exception("Cant find contact email")
 
     def add_address(self, address):
         self.address = Address(address)

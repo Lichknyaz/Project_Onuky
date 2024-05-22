@@ -1,5 +1,6 @@
 from field import Field
 import re
+from colorama import Fore, Style
 
 class Email(Field):
     def __init__(self, email):
@@ -10,6 +11,6 @@ class Email(Field):
         regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
 
         if not (re.fullmatch(regex, email)):
-            raise ValueError("Invalid email")
+            raise ValueError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Invalid email")
         else:
             return email

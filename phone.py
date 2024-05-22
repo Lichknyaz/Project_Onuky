@@ -1,4 +1,5 @@
 from field import Field
+from colorama import Fore, Style
 
 class Phone(Field):
     def __init__(self, number):
@@ -7,9 +8,9 @@ class Phone(Field):
     def validate(self, number): 
             
         if not number.isdigit(): 
-            raise ValueError("Only digits")
+            raise ValueError(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} Only digits")
             
         if len(number) != 10: 
-            raise ValueError("Only 10 digits")
+            raise ValueError(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} Only 10 digits")
               
         return number
