@@ -3,6 +3,7 @@ from phone import Phone
 from birthday import Birthday
 from user_email import Email
 from address import Address
+from notes import Note
 
 class Record:
     def __init__(self, name):
@@ -11,6 +12,7 @@ class Record:
         self.birthday = None
         self.email = None
         self.address = None
+        self.note = None
 
     def __str__(self):
         contact_full = f"Contact name: {self.name.value}"
@@ -30,6 +32,10 @@ class Record:
         if self.address:
             address = f", address: {self.address.value}"
             contact_full += address
+
+        if self.note:
+            contact_note = f", note: {self.note.value}"
+            contact_full += contact_note
 
         return contact_full
 
@@ -88,3 +94,23 @@ class Record:
 
     def add_address(self, address):
         self.address = Address(address)
+
+    def add_note(self, note):
+        """ Додаємо нотатки """
+        if len(note) > 100:
+            raise ValueError("Note content exceeds 100 characters.")
+        self.note = Note(note)
+
+    def edit_note(self, new_note):
+        """ Редагуємо нотатки """
+        if not self.note:
+            raise KeyError("No note found.")
+        if len(new_note) > 50:
+            raise ValueError("Note content exceeds 50 characters.")
+        self.note = Note(new_note)
+
+    def delete_note(self):
+        """ Видаляємо нотатки """
+        if not self.note:
+            raise KeyError("No note found.")
+        self.note = None 

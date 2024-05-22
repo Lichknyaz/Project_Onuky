@@ -189,5 +189,39 @@ def find(args, book):
 
     return record
 
-    
  
+@input_error
+def add_note_to_contact(args, book):
+    """ Добавляємо нотатки """
+    if len(args) < 2:
+        return "Wrong number of arguments"
+    contact_name, note = args[0], ' '.join(args[1:])
+    contact = book.find(contact_name)
+    if contact is None:
+        return "Can't find contact"
+    contact.add_note(note)
+    return "Note added successfully."
+
+@input_error
+def edit_note_of_contact(args, book):
+    """ Редагуємо нотатки """
+    if len(args) < 2:
+        return "Wrong number of arguments"
+    contact_name, new_note = args[0], ' '.join(args[1:])
+    contact = book.find(contact_name)
+    if contact is None:
+        return "Can't find contact"
+    contact.edit_note(new_note)
+    return "Note updated successfully."
+
+@input_error
+def delete_note_of_contact(args, book):
+    """ Видаляємо нотатки """
+    if len(args) != 1:
+        return "Wrong number of arguments"
+    contact_name = args[0]
+    contact = book.find(contact_name)
+    if contact is None:
+        return "Can't find contact"
+    contact.delete_note()
+    return "Note deleted successfully."

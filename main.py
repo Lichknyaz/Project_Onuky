@@ -20,6 +20,9 @@ change_email = ["change-email"]
 remove_email = ["delete-email"]
 remove_contact = ['remove-contact']
 find_command = ['find']
+add_note_command = ["add-note"]
+edit_note_command = ["edit-note"]
+delete_note_command = ["delete-note"]
 
 massage = f"""\n You can use this commands: \n
 {Fore.BLUE}"hi" {Fore.RESET}to start using personal assistant;
@@ -39,6 +42,9 @@ massage = f"""\n You can use this commands: \n
 {Fore.BLUE}"find {Fore.RED}[key]"{Fore.RESET} to find all the matches in the contacts" 
 
           """
+
+
+
 
 
 def handler(command, book, *args):
@@ -102,6 +108,15 @@ def handler(command, book, *args):
         elif command in find_command: 
             print(find(args, book))
 
+        elif command in add_note_command:
+            print(add_note_to_contact(args, book))
+    
+        elif command in edit_note_command:
+            print(edit_note_of_contact(args, book))
+    
+        elif command in delete_note_command:
+            print(delete_note_of_contact(args, book))    
+
         else:
             print("Invalid command.")
 
@@ -118,6 +133,3 @@ def main():
 
 if __name__ == "__main__":
     main()
- 
-
-
