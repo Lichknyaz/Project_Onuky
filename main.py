@@ -4,8 +4,8 @@ from colorama import Fore
 from prompt_toolkit import prompt
 from wordcompleter import FirstWordCompleter
 
-hello_commands = ["hello", "hi"]
-close_commands = ["close", "exit", "leave", "bye"]
+hello_commands = ["hello"]
+close_commands = ["exit"]
 add_command = ["add"]
 change_command = ["change"]
 get_all_contacts_command = ["all"]
@@ -27,8 +27,8 @@ edit_note_command = ["edit-note"]
 delete_note_command = ["delete-note"]
 
 massage = f"""\n You can use this commands: \n
-{Fore.BLUE}"hi" {Fore.RESET}to start using personal assistant;
-{Fore.BLUE}"close\\exit\\leave\\bye"{Fore.RESET} to close the personal assistant;
+{Fore.BLUE}"hello" {Fore.RESET}to start using personal assistant;
+{Fore.BLUE}"exit"{Fore.RESET} to close the personal assistant;
 {Fore.BLUE}"add {Fore.RED}[name]"{Fore.RESET} to add contact;
 {Fore.BLUE}"change {Fore.RED}[name] [old_number] [new_number]"{Fore.RESET} to change contact number; 
 {Fore.BLUE}"all"{Fore.RESET} to get all contacts; 
@@ -45,7 +45,7 @@ massage = f"""\n You can use this commands: \n
           """
 
 dict_of_commands = {
-                    "hi": "Greetings",
+                    "hello": "Greetings",
                     "exit": "Closing the bot",
                     "add": "Adding contact - Enter [name [10-digit phone number]",
                     "all": "Shows all contacts",
