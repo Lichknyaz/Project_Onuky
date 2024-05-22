@@ -4,7 +4,7 @@ from colorama import Fore, Style
 from libraries.help_info import message
 from libraries import *
 from prompt_toolkit import prompt
-from wordcompleter import FirstWordCompleter
+from libraries.wordcompleter import FirstWordCompleter
 
 hello_commands = ["hello"]
 close_commands = ["exit"]
