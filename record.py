@@ -70,10 +70,10 @@ class Record:
     def edit_email(self, email):
         self.email = Email(email) 
 
-    def delete_email(self, email):
+    def delete_email(self, name):
         contact_founded = False
 
-        if self.email.value == email: 
+        if self.name.value == name: 
            self.email = None 
            contact_founded = True
 

@@ -124,14 +124,14 @@ def change_user_email(args, book):
     
 @input_error
 def delete_user_email(args, book):
-    if len(args) != 2: 
+    if len(args) != 1: 
         return "Wrong number of arguments"
-    name, email = args 
+    name = args[0]
     contact = book.find(name)
     if contact is None: 
         return "Cant find contact"
     else: 
-        contact.delete_email(email)
+        contact.delete_email(name)
         return "Email deleted"
     
 @input_error
