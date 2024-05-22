@@ -13,6 +13,8 @@ get_user_birthday = ["show-birthday"]
 change_user_birthday = ["change-birthday"]
 birthdays = ["birthdays"]
 add_email = ["add-email"]
+add_address = ["add-address"]
+change_address = ["change-address"]
 
 
 def handler(command, book, *args):
@@ -53,6 +55,12 @@ def handler(command, book, *args):
 
         elif command in birthdays:
             print(upcoming_birthdays(args, book))
+        
+        elif command in add_address:
+            print(add_user_address(args,book))
+        
+        elif command in change_address:
+            print(change_user_address(args,book))
 
         else:
             print("Invalid command.")

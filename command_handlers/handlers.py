@@ -104,6 +104,30 @@ def add_user_email(args, book):
         return "Email added"
     
 @input_error
+def add_user_address(args, book):
+    if len(args) < 2: 
+        return "Wrong number of arguments"
+    name, *address = args 
+    contact = book.find(name)
+    if contact is None: 
+        return "Cant find contact"
+    else: 
+        contact.add_address(address)
+        return "Address added"
+    
+@input_error
+def change_user_address(args, book):
+    if len(args) < 2: 
+        return "Wrong number of arguments"
+    name, *address = args 
+    contact = book.find(name)
+    if contact is None: 
+        return "Cant find contact"
+    else: 
+        contact.add_address(address)
+        return "Address updated"
+    
+@input_error
 def upcoming_birthdays(args, book):
     days, *_ = args
     upcoming_bdays = book.get_upcoming_birthdays(days)
