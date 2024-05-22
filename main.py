@@ -1,17 +1,18 @@
 from command_handlers.handlers import *
-from storage import *
+from libraries.storage import *
 from colorama import Fore, Style
-from help_info import massage
+from libraries.help_info import message
+from libraries import *
 from prompt_toolkit import prompt
 from wordcompleter import FirstWordCompleter
 
 hello_commands = ["hello"]
 close_commands = ["exit"]
 add_command = ["add"]
-change_command = ["change"]
+change_command = ["change-phone"]
 get_all_contacts_command = ["all"]
 get_contact_command = ["phone"]
-remove_phone = ["delete"]
+remove_phone = ["delete-phone"]
 add_user_birthday = ["add-birthday"]
 get_user_birthday = ["show-birthday"]
 change_user_birthday = ["change-birthday"]
@@ -21,10 +22,10 @@ add_address = ["add-address"]
 change_address = ["change-address"]
 change_email = ["change-email"]
 remove_email = ["delete-email"]
-remove_contact = ["remove-contact"]
+remove_contact = ["delete-contact"]
 find_command = ["find"]
 add_note_command = ["add-note"]
-edit_note_command = ["edit-note"]
+edit_note_command = ["change-note"]
 delete_note_command = ["delete-note"]
 
 
@@ -33,21 +34,21 @@ dict_of_commands = {
                     "exit": "Closing the bot",
                     "add": "Adding contact - Enter [name [10-digit phone number]",
                     "all": "Shows all contacts",
-                    "change": "Changing phone number - Enter [name] [old number] [new number]",
+                    "change-phone": "Changing phone number - Enter [name] [old number] [new number]",
                     "phone": "Show contacts phone - Enter [name]",
-                    "delete": "Delete contacts phone - Enter [name] [phone number]",
+                    "delete-phone": "Delete contacts phone - Enter [name] [phone number]",
                     "add-birthday": "Adding contacts birthday - Enter [name] [DD.MM.YYYY]",
                     "show-birthday": "Show contacts birthday - Enter [name]",
                     "birthdays": "Shows all birthdays in next defined days - Enter [days]",
                     "add-email": "Adding contacts email - Enter [name] [email]",
                     "change-email": "Changing contacts email - Enter [name] [new_email]",
                     "delete-email": "Adding contacts email - Enter [name] [email]",
-                    "remove-contact": "Delete contact - Enter [name]",
+                    "delete-contact": "Delete contact - Enter [name]",
                     "find": "Find contact with any key - Enter [any key]",
                     "add-address": "Adding contacts home address - Enter [name] [address in any format]",
                     "change-address": "Changing contacts home address - Enter [name] [address in any format]",
                     "add-note": "Adding note to contact - Enter [name] [note in any format]",
-                    "edit-note": "Changing contacts note - Enter [name] [note in any format]",
+                    "change-note": "Changing contacts note - Enter [name] [note in any format]",
                     "delete-note": "Delete contacts note - Enter [name]",
                     }
 
@@ -62,7 +63,7 @@ def handler(command, book, *args):
             exit()
 
         elif command in "help": 
-            print(massage)
+            print(message)
 
         elif command in hello_commands:
             print("How can I help you?")

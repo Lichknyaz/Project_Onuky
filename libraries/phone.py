@@ -1,4 +1,4 @@
-from field import Field
+from libraries.field import Field
 from colorama import Fore, Style
 
 class Phone(Field):
@@ -11,6 +11,6 @@ class Phone(Field):
             raise ValueError(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} Only digits")
             
         if len(number) != 10: 
-            raise ValueError(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} Only 10 digits")
+            raise ValueError(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} Phone number must have 10 digits")
               
         return number

@@ -1,4 +1,4 @@
-from field import Field
+from libraries.field import Field
 
 class Note(Field):
     def __init__(self, note):

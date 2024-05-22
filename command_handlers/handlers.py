@@ -1,6 +1,6 @@
 import re
 from command_handlers.input_error import input_error
-from record import Record
+from libraries.record import Record
 from colorama import Fore, Style
 
 @input_error
