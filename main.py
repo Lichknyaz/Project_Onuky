@@ -24,7 +24,7 @@ find_command = ['find']
 massage = f"""\n You can use this commands: \n
 {Fore.BLUE}"hi"                              {Fore.RESET} to start using personal assistant;
 {Fore.BLUE}"close\\exit\\leave\\bye"            {Fore.RESET} to close the personal assistant;
-{Fore.BLUE}"add {Fore.RED}[name]"                      {Fore.RESET} to add contact;
+{Fore.BLUE}"add {Fore.RED}[name] [number]"                      {Fore.RESET} to add contact;
 {Fore.BLUE}"change {Fore.RED}[name] [old_n] [new_n]"   {Fore.RESET} to change contact number; 
 {Fore.BLUE}"all"                             {Fore.RESET} to get all contacts; 
 {Fore.BLUE}"phone {Fore.RED}[name]"                    {Fore.RESET} to get full contact; 

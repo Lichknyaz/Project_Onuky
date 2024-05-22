@@ -13,7 +13,7 @@ def parse_input(user_input):
 def add_contact(args, book) -> str:
     if len(args) != 2:
             return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
-Try: {Fore.BLUE}"add {Fore.RED}[name]"{Fore.RESET}""")
+Try: {Fore.BLUE}"add {Fore.RED}[name] [number]"{Fore.RESET}""")
     contact_name, phone = args
     contact = book.find(contact_name)
     message = (f"{Fore.GREEN}[Success]{Style.RESET_ALL} New phone added for {contact_name}")
