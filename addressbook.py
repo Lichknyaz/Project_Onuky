@@ -1,10 +1,11 @@
 from datetime import datetime, timedelta
 from collections import UserDict
+from colorama import Fore, Style
 
 class AddressBook(UserDict):
     def add_record(self, record):
         if record.name.value in self.data: 
-            raise KeyError(f"{record.name.value} already in contact book")
+            raise KeyError(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} {record.name.value} already in contact book")
         self.data[record.name.value] = record
     
     def find(self, name):
@@ -16,7 +17,7 @@ class AddressBook(UserDict):
         
     def __str__(self):
         lines = [str(record) for record in self.data.values()]
-        return "\n".join(lines)
+        return "\n".join(lines) + "\n"
 
 
     def get_upcoming_birthdays(self, days):

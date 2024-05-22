@@ -1,3 +1,5 @@
+from colorama import Fore, Style
+
 def input_error(func):
     def inner(*args, **kwargs):
         try:
