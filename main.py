@@ -1,16 +1,16 @@
 from command_handlers.handlers import *
 from libraries.storage import *
 from colorama import Fore, Style
-from libraries.help_info import massage
+from libraries.help_info import message
 from libraries import *
 
-hello_commands = ["hello", "hi"]
-close_commands = ["close", "exit", "leave", "bye"]
+hello_commands = ["hello"]
+close_commands = ["exit"]
 add_command = ["add"]
-change_command = ["change"]
+change_command = ["change-phone"]
 get_all_contacts_command = ["all"]
 get_contact_command = ["phone"]
-remove_phone = ["delete"]
+remove_phone = ["delete-phone"]
 add_user_birthday = ["add-birthday"]
 get_user_birthday = ["show-birthday"]
 change_user_birthday = ["change-birthday"]
@@ -20,10 +20,10 @@ add_address = ["add-address"]
 change_address = ["change-address"]
 change_email = ["change-email"]
 remove_email = ["delete-email"]
-remove_contact = ['remove-contact']
-find_command = ['find']
+remove_contact = ["delete-contact"]
+find_command = ["find"]
 add_note_command = ["add-note"]
-edit_note_command = ["edit-note"]
+edit_note_command = ["change-note"]
 delete_note_command = ["delete-note"]
 
 
