@@ -41,9 +41,14 @@ class Record:
             self.phones.append(Phone(number))
 
     def remove_phone(self, number: int): 
+        contact_founded = False
         for phone in self.phones: 
             if phone.value == number:
                 self.phones.remove(phone)
+                contact_founded = True
+                break
+        if not contact_founded:
+            raise Exception("Cant find contact phone")
 
     def edit_phone(self, old_phone, new_phone):
         contact_founded = False
@@ -65,15 +70,21 @@ class Record:
     def manage_birthday(self, date): 
         self.birthday = Birthday(date)
 
-    # def edit_birthday(self, date):
-    #     if self.birthday:
-    #         self.birthday = date
-    #     else:
-
-
-
     def add_email(self, email): 
         self.email = Email(email)
- 
+
+    def edit_email(self, email):
+        self.email = Email(email) 
+
+    def delete_email(self, name):
+        contact_founded = False
+
+        if self.name.value == name: 
+           self.email = None 
+           contact_founded = True
+
+        if not contact_founded:
+            raise Exception("Cant find contact email")
+
     def add_address(self, address):
         self.address = Address(address)

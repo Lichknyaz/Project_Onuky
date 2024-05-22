@@ -13,7 +13,6 @@ class AddressBook(UserDict):
 
     def delete(self, name):
         del self.data[name]
-
         
     def __str__(self):
         lines = [str(record) for record in self.data.values()]
