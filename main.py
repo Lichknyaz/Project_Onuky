@@ -1,6 +1,8 @@
 from command_handlers.handlers import *
 from storage import *
 from colorama import Fore
+from prompt_toolkit import prompt
+from wordcompleter import FirstWordCompleter
 
 hello_commands = ["hello", "hi"]
 close_commands = ["close", "exit", "leave", "bye"]
@@ -18,8 +20,8 @@ add_address = ["add-address"]
 change_address = ["change-address"]
 change_email = ["change-email"]
 remove_email = ["delete-email"]
-remove_contact = ['remove-contact']
-find_command = ['find']
+remove_contact = ["remove-contact"]
+find_command = ["find"]
 add_note_command = ["add-note"]
 edit_note_command = ["edit-note"]
 delete_note_command = ["delete-note"]
@@ -43,7 +45,20 @@ massage = f"""\n You can use this commands: \n
 
           """
 
-
+dict_of_commands = {
+                    "hi": "Greetings",
+                    "exit": "Closing the bot",
+                    "add": "Adding contact - Enter <Name> <10-digit phone number>",
+                    "change": "Changing phone number - Enter <Name> <old number> <new number>",
+                    "phone": "Show contacts phone - Enter <Name>",
+                    "delete": "Delete contacts phone - Enter <Name> <phone number>",
+                    "add-birthday": "Adding contacts birthday - Enter [name] [DD.MM.YYYY]",
+                    "show-birthday": "Show contacts birthday - Enter [name]",
+                    "birthdays": "Shows all birthdays in next defined days - Enter [days]",
+                    "add-email": "Adding contacts email - Enter [name] [email]",
+                    "change-address": "Еnter home adress in any format",
+                    }
+completer = FirstWordCompleter(dict_of_commands)
 
 
 
@@ -125,7 +140,7 @@ def main():
     book = load_data()
     print("Welcome to the assistant bot!")
     while True:
-        user_input = input("Enter a command: ")
+        user_input = prompt('Enter a command: ', completer=completer)
         command, *args = parse_input(user_input)
         handler(command, book, *args)
 
