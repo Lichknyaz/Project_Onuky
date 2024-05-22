@@ -48,15 +48,24 @@ massage = f"""\n You can use this commands: \n
 dict_of_commands = {
                     "hi": "Greetings",
                     "exit": "Closing the bot",
-                    "add": "Adding contact - Enter <Name> <10-digit phone number>",
-                    "change": "Changing phone number - Enter <Name> <old number> <new number>",
-                    "phone": "Show contacts phone - Enter <Name>",
-                    "delete": "Delete contacts phone - Enter <Name> <phone number>",
+                    "add": "Adding contact - Enter [name [10-digit phone number]",
+                    "all": "Shows all contacts",
+                    "change": "Changing phone number - Enter [name] [old number] [new number]",
+                    "phone": "Show contacts phone - Enter [name]",
+                    "delete": "Delete contacts phone - Enter [name] [phone number]",
                     "add-birthday": "Adding contacts birthday - Enter [name] [DD.MM.YYYY]",
                     "show-birthday": "Show contacts birthday - Enter [name]",
                     "birthdays": "Shows all birthdays in next defined days - Enter [days]",
                     "add-email": "Adding contacts email - Enter [name] [email]",
-                    "change-address": "Еnter home adress in any format",
+                    "change-email": "Changing contacts email - Enter [name] [new_email]",
+                    "delete-email": "Adding contacts email - Enter [name] [email]",
+                    "remove-contact": "Delete contact - Enter [name]",
+                    "find": "Find contact with any key - Enter [any key]",
+                    "add-address": "Adding contacts home address - Enter [name] [address in any format]",
+                    "change-address": "Changing contacts home address - Enter [name] [address in any format]",
+                    "add-note": "Adding note to contact - Enter [name] [note in any format]",
+                    "edit-note": "Changing contacts note - Enter [name] [note in any format]",
+                    "delete-note": "Delete contacts note - Enter [name]",
                     }
 completer = FirstWordCompleter(dict_of_commands)
 
@@ -140,7 +149,7 @@ def main():
     book = load_data()
     print("Welcome to the assistant bot!")
     while True:
-        user_input = prompt('Enter a command: ', completer=completer)
+        user_input = prompt("\nEnter a command: ", completer=completer)
         command, *args = parse_input(user_input)
         handler(command, book, *args)
 
