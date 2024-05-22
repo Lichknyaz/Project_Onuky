@@ -12,6 +12,11 @@ add_user_birthday = ["add-birthday"]
 get_user_birthday = ["show-birthday"]
 birthdays = ["birthdays"]
 add_email = ["add-email"]
+add_note_command = ["add-note"]
+edit_note_command = ["edit-note"]
+delete_note_command = ["delete-note"]
+
+
 
 
 def handler(command, book, *args):
@@ -50,6 +55,15 @@ def handler(command, book, *args):
         elif command in birthdays:
             print(upcoming_birthdays(args, book))
 
+        elif command in add_note_command:
+            print(add_note_to_contact(args, book))
+    
+        elif command in edit_note_command:
+            print(edit_note_of_contact(args, book))
+    
+        elif command in delete_note_command:
+            print(delete_note_of_contact(args, book))    
+
         else:
             print("Invalid command.")
 
@@ -66,6 +80,3 @@ def main():
 
 if __name__ == "__main__":
     main()
- 
-
-
