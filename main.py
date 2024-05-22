@@ -42,7 +42,6 @@ massage = f"""\n You can use this commands: \n
 {Fore.BLUE}"delete-email {Fore.RED}[name] "{Fore.RESET} to delete user email;
 {Fore.BLUE}"remove-contact {Fore.RED}[name]"{Fore.RESET} to delete contact from adress book fully; 
 {Fore.BLUE}"find {Fore.RED}[key]"{Fore.RESET} to find all the matches in the contacts" 
-
           """
 
 dict_of_commands = {
@@ -67,7 +66,7 @@ dict_of_commands = {
                     "edit-note": "Changing contacts note - Enter [name] [note in any format]",
                     "delete-note": "Delete contacts note - Enter [name]",
                     }
-completer = FirstWordCompleter(dict_of_commands)
+
 
 
 
@@ -148,6 +147,7 @@ def handler(command, book, *args):
 def main():
     book = load_data()
     print("Welcome to the assistant bot!")
+    completer = FirstWordCompleter(dict_of_commands)
     while True:
         user_input = prompt("\nEnter a command: ", completer=completer)
         command, *args = parse_input(user_input)
