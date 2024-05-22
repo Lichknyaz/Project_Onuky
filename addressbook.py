@@ -5,7 +5,7 @@ from colorama import Fore, Style
 class AddressBook(UserDict):
     def add_record(self, record):
         if record.name.value in self.data: 
-            raise KeyError(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} {record.name.value} already in contact book")
+            raise Exception(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} {record.name.value} already in contact book")
         self.data[record.name.value] = record
     
     def find(self, name):
@@ -17,7 +17,7 @@ class AddressBook(UserDict):
         
     def __str__(self):
         lines = [str(record) for record in self.data.values()]
-        return "\n".join(lines) + "\n"
+        return f"\n{Fore.GREEN}Here all your contacts{Style.RESET_ALL}: \n" + "".join(lines) 
 
 
     def get_upcoming_birthdays(self, days):

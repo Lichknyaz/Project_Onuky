@@ -111,7 +111,7 @@ def main():
     book = load_data()
     print("Welcome to the assistant bot!")
     while True:
-        user_input = input("Enter a command: ")
+        user_input = input("\nEnter a command: ")
         command, *args = parse_input(user_input)
         handler(command, book, *args)
 

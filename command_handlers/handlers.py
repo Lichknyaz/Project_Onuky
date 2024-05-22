@@ -194,11 +194,11 @@ Try: {Fore.BLUE}"find {Fore.RED}[key]"{Fore.RESET} """
     
     search_item = args[0]
     contact_founded = False
-    record = ""
+    record = f"\n{Fore.GREEN}Here all search results{Style.RESET_ALL}: \n"
 
     for key, value in book.items():
         if search_item in f"{value}": 
-            record += f"\n {book.find(key)} \n"
+            record += f"{book.find(key)}"
             contact_founded = True
     if not contact_founded:
         raise Exception(f"{Fore.YELLOW}[Warining]{Style.RESET_ALL} Cant find anything")
