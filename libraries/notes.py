@@ -8,3 +8,8 @@ class Note(Field):
 
     def is_note_valid(self, note):
         return len(note) <= 50
+    
+    def add_tag(self, tags):
+        for tag in tags:
+            self.value += f" {tag}"
+        return self.value

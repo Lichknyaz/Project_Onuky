@@ -39,7 +39,7 @@ class AddressBook(UserDict):
                 time_delta = timedelta(int(days))
 
                 if (diff <= time_delta):
-                    list_of_upcoming_bdays.append(f"{name} has birthday on {bday_this_year.strftime("%d.%m.%Y")}")
+                    list_of_upcoming_bdays.append(f"{name} has birthday on {bday_this_year.strftime('%d.%m.%Y')}")
 
         return list_of_upcoming_bdays
 

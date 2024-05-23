@@ -44,4 +44,5 @@ dict_of_commands = {
                     "add-note": "Adding note to contact - Enter [name] [note in any format]",
                     "change-note": "Changing contacts note - Enter [name] [note in any format]",
                     "delete-note": "Delete contacts note - Enter [name]",
-                    }
+                    "add-tags": "Adding tags to note - Enter [name] [any word with # prefix]"
+                  }

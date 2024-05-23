@@ -27,6 +27,7 @@ find_command = ["find"]
 add_note_command = ["add-note"]
 edit_note_command = ["change-note"]
 delete_note_command = ["delete-note"]
+add_tag_command = ["add-tags"]
 
 def handler(command, book, *args):
         
@@ -96,7 +97,10 @@ def handler(command, book, *args):
             print(edit_note_of_contact(args, book))
     
         elif command in delete_note_command:
-            print(delete_note_of_contact(args, book))    
+            print(delete_note_of_contact(args, book))   
+
+        elif command in add_tag_command:
+            print(add_tag_to_note(args, book))  
 
         else:
             print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Invalid command. Use {Fore.BLUE}help{Style.RESET_ALL} if you forgot commands")

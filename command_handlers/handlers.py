@@ -241,3 +241,14 @@ def delete_note_of_contact(args, book):
         return "Can't find contact"
     contact.delete_note()
     return "Note deleted successfully."
+
+@input_error
+def add_tag_to_note(args, book):
+    contact_name, *tags = args
+    contact = book.find(contact_name)
+    if contact is None: 
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Cant find contact"
+    else:
+        contact.edit_note(tags)
+        return "Tags  added successfully."
+

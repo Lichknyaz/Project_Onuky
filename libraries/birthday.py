@@ -10,4 +10,4 @@ class Birthday(Field):
             raise ValueError(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} Use DD.MM.YYYY format only")
         
     def __str__(self):
-        return f"{self.value.strftime("%d.%m.%Y")}"
+        return f"{self.value.strftime('%d.%m.%Y')}"

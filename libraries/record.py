@@ -101,7 +101,10 @@ class Record:
             raise KeyError("No note found.")
         if len(new_note) > 50:
             raise ValueError("Note content exceeds 50 characters.")
-        self.note = Note(new_note)
+        if isinstance(new_note, list):
+            self.note.add_tag(new_note)
+        else:
+            self.note = Note(new_note)
 
     def delete_note(self):
         """ Видаляємо нотатки """
