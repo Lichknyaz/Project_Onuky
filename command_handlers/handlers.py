@@ -67,7 +67,7 @@ Try: {Fore.BLUE}"phone {Fore.RED}[name]"{Fore.RESET}""")
         return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Cant find contact"
     else: 
         for number in contact.phones:
-            massage += "\n" + f"{Fore.RED}-->{Style.RESET_ALL}" + f" {number}"
+            massage += "\n" + f"{Fore.RED}number{Style.RESET_ALL}" + f" {number}"
     return massage
 
 
