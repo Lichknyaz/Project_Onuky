@@ -12,7 +12,7 @@ def parse_input(user_input):
 @input_error
 def add_contact(args, book) -> str:
     if len(args) != 2:
-            return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+            return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"add {Fore.RED}[name] [number]"{Fore.RESET}""")
     contact_name, phone = args
     contact = book.find(contact_name)
@@ -29,7 +29,7 @@ Try: {Fore.BLUE}"add {Fore.RED}[name] [number]"{Fore.RESET}""")
 @input_error
 def change_contact(args, book) -> str: 
     if len(args) != 3:
-            return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+            return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"change {Fore.RED}[name] [old_n] [new_n]"{Fore.RESET}""")
     else:
         contact_name, old_phone, new_phone = args
@@ -43,7 +43,7 @@ Try: {Fore.BLUE}"change {Fore.RED}[name] [old_n] [new_n]"{Fore.RESET}""")
 @input_error
 def remove_user_phone(args, book) -> str: 
     if len(args) != 2:
-            return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+            return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"delete {Fore.RED}[name] [number]"{Fore.RESET}""")
     else:
         contact_name, phone = args
@@ -58,11 +58,11 @@ Try: {Fore.BLUE}"delete {Fore.RED}[name] [number]"{Fore.RESET}""")
 @input_error
 def show_phone(args, book) -> str:
     if len(args) != 1:
-            return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+            return(f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"phone {Fore.RED}[name]"{Fore.RESET}""")
     contact_name = args[0]
     contact = book.find(contact_name)
-    massage = f"\n{Fore.GREEN}[Success]{Style.RESET_ALL} Here is all contact numbers: \n"
+    massage = f"\n{Fore.GREEN}Here is all contact numbers: {Style.RESET_ALL} \n"
     if contact is None: 
         return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Cant find contact"
     else: 
@@ -74,7 +74,7 @@ Try: {Fore.BLUE}"phone {Fore.RED}[name]"{Fore.RESET}""")
 @input_error
 def manage_birthday(args, book):
     if len(args) != 2:
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"add-birthday {Fore.RED}[name] [DD.MM.YYYY]"{Fore.RESET}"""
     name, date = args
     contact = book.find(name)
@@ -91,7 +91,7 @@ Try: {Fore.BLUE}"add-birthday {Fore.RED}[name] [DD.MM.YYYY]"{Fore.RESET}"""
 @input_error
 def show_birthday(args, book):
     if len(args) != 1:
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"show-birthday {Fore.RED}[name]"{Fore.RESET}"""
     name = args[0]
     contact = book.find(name)
@@ -106,7 +106,7 @@ Try: {Fore.BLUE}"show-birthday {Fore.RED}[name]"{Fore.RESET}"""
 @input_error
 def add_user_email(args, book):
     if len(args) != 2: 
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"add-email {Fore.RED}[name] [email]"{Fore.RESET}"""
     name, email = args 
     contact = book.find(name)
@@ -119,7 +119,7 @@ Try: {Fore.BLUE}"add-email {Fore.RED}[name] [email]"{Fore.RESET}"""
 @input_error
 def add_user_address(args, book):
     if len(args) < 2: 
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"add-address {Fore.RED}[name] [adress]"{Fore.RESET}"""
     name, *address = args 
     contact = book.find(name)
@@ -132,7 +132,7 @@ Try: {Fore.BLUE}"add-address {Fore.RED}[name] [adress]"{Fore.RESET}"""
 @input_error
 def change_user_address(args, book):
     if len(args) < 2: 
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"change-adress {Fore.RED}[name] [adress]"{Fore.RESET}"""
     name, *address = args 
     contact = book.find(name)
@@ -145,22 +145,22 @@ Try: {Fore.BLUE}"change-adress {Fore.RED}[name] [adress]"{Fore.RESET}"""
 @input_error
 def upcoming_birthdays(args, book):
     if len(args) != 1: 
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
-Try: {Fore.BLUE}"birthdays {Fore.RED}[number of days]"{Fore.RESET}"""
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
+Try: {Fore.BLUE}"birthdays {Fore.RED}[name] "{Fore.RESET}"""
     days, *_ = args
     upcoming_bdays = book.get_upcoming_birthdays(days)
-    if len(upcoming_bdays):
-        str_ = ''
-        for bday in upcoming_bdays:
-            str_ += f"{bday}; "
-        return str_
+    str_ = ''
+    for bday in upcoming_bdays:
+        str_ += f"{bday}; "
+    if str_:
+        return "\n" + str_
     else:
-        return f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} No birthdays in next {days} days."
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} No birthdays in next {days} days"
 
 @input_error
 def change_user_email(args, book):
     if len(args) != 2: 
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"change-email {Fore.RED}[name] [email]"{Fore.RESET}"""
     name, email = args 
     contact = book.find(name)
@@ -173,7 +173,7 @@ Try: {Fore.BLUE}"change-email {Fore.RED}[name] [email]"{Fore.RESET}"""
 @input_error
 def delete_user_email(args, book):
     if len(args) != 1: 
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"delete-email {Fore.RED}[name]"{Fore.RESET}"""
     name = args[0]
     contact = book.find(name)
@@ -186,7 +186,7 @@ Try: {Fore.BLUE}"delete-email {Fore.RED}[name]"{Fore.RESET}"""
 @input_error
 def remove_user_contact(args, book):
     if len(args) != 1: 
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"remove-contact {Fore.RED}[name]"{Fore.RESET}"""
     name = args[0] 
     contact = book.find(name)
@@ -199,7 +199,7 @@ Try: {Fore.BLUE}"remove-contact {Fore.RED}[name]"{Fore.RESET}"""
 @input_error
 def find(args, book):
     if len(args) != 1: 
-        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
 Try: {Fore.BLUE}"find {Fore.RED}[key]"{Fore.RESET} """
     
     search_item = args[0]
@@ -218,9 +218,8 @@ Try: {Fore.BLUE}"find {Fore.RED}[key]"{Fore.RESET} """
  
 @input_error
 def add_note_to_contact(args, book):
-    """ Добавляємо нотатки """
     if len(args) < 2:
-        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments"
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something"
     contact_name, note = args[0], ' '.join(args[1:])
     contact = book.find(contact_name)
     if contact is None:
@@ -230,9 +229,8 @@ def add_note_to_contact(args, book):
 
 @input_error
 def edit_note_of_contact(args, book):
-    """ Редагуємо нотатки """
     if len(args) < 2:
-        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments"
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something"
     contact_name, new_note = args[0], ' '.join(args[1:])
     contact = book.find(contact_name)
     if contact is None:
@@ -248,9 +246,8 @@ def edit_note_of_contact(args, book):
 
 @input_error
 def delete_note_of_contact(args, book):
-    """ Видаляємо нотатки """
     if len(args) != 1:
-        return "Wrong number of arguments"
+        return "Dear Granny, maybe you forgot something"
     contact_name = args[0]
     contact = book.find(contact_name)
     if contact is None:
@@ -261,16 +258,17 @@ def delete_note_of_contact(args, book):
 @input_error
 def search_notes(args, book):
     if len(args) != 1:
-        return "Wrong number of arguments"
+        return "Dear Granny, maybe you forgot something"
     query = args[0]
     found_notes = []
     for contact in book.values():
         if contact.note and query.lower() in contact.note.value.lower():
             found_notes.append(contact.note.value)
     if found_notes:
-        return "\n".join(found_notes)
+        record = f"\n{Fore.GREEN}Here all search results{Style.RESET_ALL}: \n"
+        return record + "\n" + "\n".join(found_notes)
     else:
-        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} No notes found matching the query."
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} No notes found matching your query."
 
 @input_error
 def add_tag_to_note(args, book):

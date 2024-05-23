@@ -6,7 +6,7 @@ message = f"""\nYou can use this commands: \n
 {Fore.BLUE}"add {Fore.RED}[name] [phone number]"                     {Fore.RESET} to add contact;
 {Fore.BLUE}"change-phone {Fore.RED}[name] [old phone] [new phone]"   {Fore.RESET} to change contact number; 
 {Fore.BLUE}"all"                                           {Fore.RESET} to get all contacts; 
-{Fore.BLUE}"phone {Fore.RED}[name]"                                  {Fore.RESET} to get full contact; 
+{Fore.BLUE}"phone {Fore.RED}[name]"                                  {Fore.RESET} to get contacts phone numbers; 
 {Fore.BLUE}"delete-phone {Fore.RED}[name] [number]"                  {Fore.RESET} to delete phone number";
 {Fore.BLUE}"add-birthday {Fore.RED}[name] [DD.MM.YYYY]"              {Fore.RESET} to add contacts birthday date";
 {Fore.BLUE}"show-birthday {Fore.RED}[name]"                          {Fore.RESET} to show contacts birthday date;
@@ -21,12 +21,14 @@ message = f"""\nYou can use this commands: \n
 {Fore.BLUE}"add-note {Fore.RED}[name] [note]"                        {Fore.RESET} to add note to contact;
 {Fore.BLUE}"change-note {Fore.RED}[name] [new note]"                 {Fore.RESET} to change note to contact;
 {Fore.BLUE}"delete-note {Fore.RED}[name]"                            {Fore.RESET} to delete contacts note;
+{Fore.BLUE}"search-note {Fore.RED}[name]"                            {Fore.RESET} to search in contacts notes;
+{Fore.BLUE}"add-tags {Fore.RED}[name]"                               {Fore.RESET} to tags to contacts notes;
           """
 
 dict_of_commands = {
                     "hello": "Greetings",
                     "exit": "Closing the bot",
-                    "add": "Adding contact - Enter [name [10-digit phone number]",
+                    "add": "Adding contact - Enter [name] [10-digit phone number]",
                     "all": "Shows all contacts",
                     "change-phone": "Changing phone number - Enter [name] [old number] [new number]",
                     "phone": "Show contacts phone - Enter [name]",
@@ -36,13 +38,14 @@ dict_of_commands = {
                     "birthdays": "Shows all birthdays in next defined days - Enter [days]",
                     "add-email": "Adding contacts email - Enter [name] [email]",
                     "change-email": "Changing contacts email - Enter [name] [new_email]",
-                    "delete-email": "Adding contacts email - Enter [name] [email]",
+                    "delete-email": "Adding contacts email - Enter [name]",
                     "delete-contact": "Delete contact - Enter [name]",
-                    "find": "Find contact with any key - Enter [any key]",
+                    "find": "Find contact with any key - Enter [any word, digit or symbol]",
                     "add-address": "Adding contacts home address - Enter [name] [address in any format]",
                     "change-address": "Changing contacts home address - Enter [name] [address in any format]",
                     "add-note": "Adding note to contact - Enter [name] [note in any format]",
                     "change-note": "Changing contacts note - Enter [name] [note in any format]",
                     "delete-note": "Delete contacts note - Enter [name]",
+                    "search-note": "Search in all contacts note - Enter [any word, digit or symbol]",
                     "add-tags": "Adding tags to note - Enter [name] [any word with # prefix]"
                   }

@@ -6,116 +6,93 @@ from libraries import *
 from prompt_toolkit import prompt
 from libraries.wordcompleter import FirstWordCompleter
 
-hello_commands = ["hello"]
-close_commands = ["exit"]
-add_command = ["add"]
-change_command = ["change-phone"]
-get_all_contacts_command = ["all"]
-get_contact_command = ["phone"]
-remove_phone = ["delete-phone"]
-add_user_birthday = ["add-birthday"]
-get_user_birthday = ["show-birthday"]
-change_user_birthday = ["change-birthday"]
-birthdays = ["birthdays"]
-add_email = ["add-email"]
-add_address = ["add-address"]
-change_address = ["change-address"]
-change_email = ["change-email"]
-remove_email = ["delete-email"]
-remove_contact = ["delete-contact"]
-find_command = ["find"]
-add_note_command = ["add-note"]
-edit_note_command = ["change-note"]
-delete_note_command = ["delete-note"]
-add_tag_command = ["add-tags"]
-search_note_command = ["search-note"]
 
 def handler(command, book, *args):
         
-        if command in close_commands:
-            print("Good bye!")
+        if command == "exit":
+            print("Good bye, Granny!")
             save_data(book)
             exit()
 
-        elif command in "help": 
+        elif command == "help": 
             print(message)
 
-        elif command in hello_commands:
-            print("How can I help you?")
+        elif command == "hello":
+            print("How can I help you, Granny?")
 
-        elif command in add_command:
+        elif command == "add":
             print(add_contact(args, book))
 
-        elif command in remove_phone:
+        elif command == "delete-phone":
             print(remove_user_phone(args, book))
 
-        elif command in change_command: 
+        elif command == "change-phone": 
             print(change_contact(args, book))
 
-        elif command in get_contact_command:
+        elif command == "phone":
             print(show_phone(args, book))
 
-        elif command in get_all_contacts_command: 
+        elif command == "all": 
             print(book)   
 
-        elif command in add_email:
+        elif command == "add-email":
             print(add_user_email(args, book))
 
-        elif command in change_email:
+        elif command == "change-email":
             print(change_user_email(args, book))
 
-        elif command in remove_email:
+        elif command == "delete-email":
             print(delete_user_email(args, book))
         
-        elif command in add_user_birthday:
+        elif command == "add-birthday":
             print(manage_birthday(args, book))
 
-        elif command in get_user_birthday:
+        elif command == "show-birthday":
             print(show_birthday(args, book))
 
-        elif command in change_user_birthday:
+        elif command == "change-birthday":
             print(manage_birthday(args, book))
 
-        elif command in birthdays:
+        elif command == "birthdays":
             print(upcoming_birthdays(args, book))
         
-        elif command in add_address:
+        elif command == "add-address":
             print(add_user_address(args,book))
         
-        elif command in change_address:
+        elif command == "change-address":
             print(change_user_address(args,book))
         
-        elif command in remove_contact:
+        elif command == "delete-contact":
             print(remove_user_contact(args, book))
         
-        elif command in find_command: 
+        elif command == "find": 
             print(find(args, book))
 
-        elif command in add_note_command:
+        elif command == "add-note":
             print(add_note_to_contact(args, book))
     
-        elif command in edit_note_command:
+        elif command == "change-note":
             print(edit_note_of_contact(args, book))
     
-        elif command in delete_note_command:
+        elif command == "delete-note":
             print(delete_note_of_contact(args, book))   
 
-        elif command in search_note_command:
+        elif command == "search-note":
             print(search_notes(args, book))
         
-        elif command in add_tag_command:
+        elif command == "add-tags":
             print(add_tag_to_note(args, book))  
             
         else:
-            print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Invalid command. Use {Fore.BLUE}help{Style.RESET_ALL} if you forgot commands")
+            print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Invalid command. Please, use {Fore.BLUE}help{Style.RESET_ALL} if you forgot commands")
 
 
 def main():
     book = load_data()
-    print("Welcome to the assistant bot!")
+    print("Welcome to the assistant bot, Granny!")
     completer = FirstWordCompleter(dict_of_commands)
     while True:
-        user_input = prompt("\nEnter a command: ", completer=completer)
+        user_input = prompt("\nPlease, enter a command: ", completer=completer)
         command, *args = parse_input(user_input)
         handler(command, book, *args)
 
