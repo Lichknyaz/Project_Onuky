@@ -146,7 +146,7 @@ Try: {Fore.BLUE}"change-adress {Fore.RED}[name] [adress]"{Fore.RESET}"""
 def upcoming_birthdays(args, book):
     if len(args) != 1: 
         return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
-Try: {Fore.BLUE}"birthdays {Fore.RED}[name] "{Fore.RESET}"""
+Try: {Fore.BLUE}"birthdays {Fore.RED}[days ahead] "{Fore.RESET}"""
     days, *_ = args
     upcoming_bdays = book.get_upcoming_birthdays(days)
     str_ = ''
