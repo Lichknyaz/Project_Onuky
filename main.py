@@ -89,7 +89,7 @@ def handler(command, book, *args):
 
 def main():
     book = load_data()
-    print("Welcome to the assistant bot, Granny!")
+    print("Welcome to the assistant bot, Granny!\n", message)
     completer = FirstWordCompleter(dict_of_commands)
     while True:
         user_input = prompt("\nPlease, enter a command: ", completer=completer)
