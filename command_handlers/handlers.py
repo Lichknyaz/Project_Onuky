@@ -210,25 +210,31 @@ Try: {Fore.BLUE}"find {Fore.RED}[key]"{Fore.RESET} """
 def add_note_to_contact(args, book):
     """ Добавляємо нотатки """
     if len(args) < 2:
-        return "Wrong number of arguments"
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments"
     contact_name, note = args[0], ' '.join(args[1:])
     contact = book.find(contact_name)
     if contact is None:
-        return "Can't find contact"
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Can't find contact"
     contact.add_note(note)
-    return "Note added successfully."
+    return f"{Fore.GREEN}[Success]{Style.RESET_ALL} Note added successfully."
 
 @input_error
 def edit_note_of_contact(args, book):
     """ Редагуємо нотатки """
     if len(args) < 2:
-        return "Wrong number of arguments"
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments"
     contact_name, new_note = args[0], ' '.join(args[1:])
     contact = book.find(contact_name)
     if contact is None:
-        return "Can't find contact"
-    contact.edit_note(new_note)
-    return "Note updated successfully."
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Can't find contact"
+    
+    try:
+        contact.edit_note(new_note)
+        return f"{Fore.GREEN}[Success]{Style.RESET_ALL} Note updated successfully."
+    except KeyError:
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found."
+    except ValueError:
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Note content exceeds 50 characters."
 
 @input_error
 def delete_note_of_contact(args, book):
@@ -238,6 +244,21 @@ def delete_note_of_contact(args, book):
     contact_name = args[0]
     contact = book.find(contact_name)
     if contact is None:
-        return "Can't find contact"
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Can't find contact"
     contact.delete_note()
-    return "Note deleted successfully."
+    return f"{Fore.GREEN}[Success]{Style.RESET_ALL} Note deleted successfully."
+
+@input_error
+def search_notes(args, book):
+    """ Функція для пошуку """
+    if len(args) != 1:
+        return "Wrong number of arguments"
+    query = args[0]
+    found_notes = []
+    for contact in book.values():
+        if contact.note and query.lower() in contact.note.value.lower():
+            found_notes.append(contact.note.value)
+    if found_notes:
+        return f"{Fore.GREEN}[Success]{Style.RESET_ALL} " + "\n".join(found_notes)
+    else:
+        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} No notes found matching the query."

@@ -107,4 +107,12 @@ class Record:
         """ Видаляємо нотатки """
         if not self.note:
             raise KeyError("No note found.")
-        self.note = None 
+        self.note = None
+
+    def find_notes(self, query):
+        """Шукає нотатки за вказаним запитом."""
+        found_notes = []
+        if self.note:
+            if query.lower() in self.note.value.lower():
+                found_notes.append(self.note.value)
+        return found_notes    
