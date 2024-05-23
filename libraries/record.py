@@ -98,7 +98,7 @@ class Record:
     def edit_note(self, new_note):
         """ Редагуємо нотатки """
         if not self.note:
-            raise KeyError("No note found.")
+            raise KeyError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found.")
         if len(new_note) > 50:
             raise ValueError("Note content exceeds 50 characters.")
         if isinstance(new_note, list):
