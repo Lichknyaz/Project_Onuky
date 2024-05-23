@@ -144,12 +144,18 @@ Try: {Fore.BLUE}"change-adress {Fore.RED}[name] [adress]"{Fore.RESET}"""
     
 @input_error
 def upcoming_birthdays(args, book):
+    if len(args) != 1: 
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Wrong number of arguments
+Try: {Fore.BLUE}"birthdays {Fore.RED}[number of days]"{Fore.RESET}"""
     days, *_ = args
     upcoming_bdays = book.get_upcoming_birthdays(days)
-    str_ = ''
-    for bday in upcoming_bdays:
-        str_ += f"{bday}; "
-    return str_
+    if len(upcoming_bdays):
+        str_ = ''
+        for bday in upcoming_bdays:
+            str_ += f"{bday}; "
+        return str_
+    else:
+        return f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} No birthdays in next {days} days."
 
 @input_error
 def change_user_email(args, book):
