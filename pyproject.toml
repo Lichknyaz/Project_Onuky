@@ -1,0 +1,22 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Project_Onuky"
+version = "1.0"
+description = "Bot for best Granny"
+readme = "README.md"
+authors = [{ name = "Real Python", email = "info@realpython.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["feed", "reader", "tutorial"]
+dependencies = ["feedparser", "html2text", 'tomli; python_version < "3.11"']
+requires-python = ">=3.7"
+
+    [project.scripts]
+    project_onuky = "reader.__main__:main"
