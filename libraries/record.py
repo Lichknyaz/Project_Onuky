@@ -94,7 +94,7 @@ class Record:
 
     def edit_note(self, new_note):
         if not self.note:
-            raise KeyError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found.")
+            raise Exception(f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found.")
         if isinstance(new_note, list):
             self.note.add_tag(new_note)
         else:
@@ -102,7 +102,7 @@ class Record:
 
     def delete_note(self):
         if not self.note:
-            raise KeyError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found.")
+            raise Exception(f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found.")
         self.note = None
 
     def find_notes(self, query):

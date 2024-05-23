@@ -219,7 +219,8 @@ Try: {Fore.BLUE}"find {Fore.RED}[key]"{Fore.RESET} """
 @input_error
 def add_note_to_contact(args, book):
     if len(args) < 2:
-        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something"
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
+Try: {Fore.BLUE}"add-note {Fore.RED} [name] [note] {Fore.RESET} """
     contact_name, note = args[0], ' '.join(args[1:])
     contact = book.find(contact_name)
     if contact is None:
@@ -230,24 +231,21 @@ def add_note_to_contact(args, book):
 @input_error
 def edit_note_of_contact(args, book):
     if len(args) < 2:
-        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something"
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
+Try: {Fore.BLUE}"change-note {Fore.RED} [name] [new note] {Fore.RESET} """
     contact_name, new_note = args[0], ' '.join(args[1:])
     contact = book.find(contact_name)
     if contact is None:
         return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Can't find contact"
-    
-    try:
-        contact.edit_note(new_note)
-        return f"{Fore.GREEN}[Success]{Style.RESET_ALL} Note updated successfully."
-    except KeyError:
-        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found."
-    except ValueError:
-        return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Note content exceeds 50 characters."
+    contact.edit_note(new_note)
+    return f"{Fore.GREEN}[Success]{Style.RESET_ALL} Note updated successfully."
+
 
 @input_error
 def delete_note_of_contact(args, book):
     if len(args) != 1:
-        return "Dear Granny, maybe you forgot something"
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
+Try: {Fore.BLUE}"delete-note {Fore.RED} [name]{Fore.RESET} """
     contact_name = args[0]
     contact = book.find(contact_name)
     if contact is None:
@@ -258,7 +256,8 @@ def delete_note_of_contact(args, book):
 @input_error
 def search_notes(args, book):
     if len(args) != 1:
-        return "Dear Granny, maybe you forgot something"
+        return f"""{Fore.RED}[ERROR]{Style.RESET_ALL} Dear Granny, maybe you forgot something
+Try: {Fore.BLUE}"search-note {Fore.RED} [name] [note] {Fore.RESET} """
     query = args[0]
     found_notes = []
     for contact in book.values():
