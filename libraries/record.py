@@ -90,13 +90,11 @@ class Record:
         self.address = Address(address)
 
     def add_note(self, note):
-        """ Додаємо нотатки """
         if len(note) > 100:
             raise ValueError("Note content exceeds 100 characters.")
         self.note = Note(note)
 
     def edit_note(self, new_note):
-        """ Редагуємо нотатки """
         if not self.note:
             raise KeyError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found.")
         if len(new_note) > 50:
@@ -107,7 +105,13 @@ class Record:
             self.note = Note(new_note)
 
     def delete_note(self):
-        """ Видаляємо нотатки """
         if not self.note:
             raise KeyError("No note found.")
-        self.note = None 
+        self.note = None
+
+    def find_notes(self, query):
+        found_notes = []
+        if self.note:
+            if query.lower() in self.note.value.lower():
+                found_notes.append(self.note.value)
+        return found_notes    
