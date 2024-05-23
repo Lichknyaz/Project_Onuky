@@ -62,10 +62,14 @@ def show_phone(args, book) -> str:
 Try: {Fore.BLUE}"phone {Fore.RED}[name]"{Fore.RESET}""")
     contact_name = args[0]
     contact = book.find(contact_name)
+    massage = f"\n{Fore.GREEN}[Success]{Style.RESET_ALL} Here is all contact numbers: \n"
     if contact is None: 
         return f"{Fore.RED}[ERROR]{Style.RESET_ALL} Cant find contact"
     else: 
-        return contact
+        for number in contact.phones:
+            massage += "\n" + f"{Fore.RED}number{Style.RESET_ALL}" + f" {number}"
+    return massage
+
 
 @input_error
 def manage_birthday(args, book):
