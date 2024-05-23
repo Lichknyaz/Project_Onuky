@@ -11,6 +11,6 @@ class Email(Field):
         regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
 
         if not (re.fullmatch(regex, email)):
-            raise ValueError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Invalid email")
+            raise ValueError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Worng format of email, please try again.")
         else:
             return email

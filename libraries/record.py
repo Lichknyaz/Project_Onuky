@@ -43,7 +43,7 @@ class Record:
     def add_phone(self, number: str): 
         for phone in self.phones: 
              if phone.value == number: 
-                 raise Exception(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} already in contact book")
+                 raise Exception(f"{Fore.YELLOW}[Warning]{Style.RESET_ALL} Already in contact book")
         else:
             self.phones.append(Phone(number))
 
@@ -90,15 +90,11 @@ class Record:
         self.address = Address(address)
 
     def add_note(self, note):
-        if len(note) > 100:
-            raise ValueError("Note content exceeds 100 characters.")
         self.note = Note(note)
 
     def edit_note(self, new_note):
         if not self.note:
             raise KeyError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found.")
-        if len(new_note) > 50:
-            raise ValueError("Note content exceeds 50 characters.")
         if isinstance(new_note, list):
             self.note.add_tag(new_note)
         else:
@@ -106,7 +102,7 @@ class Record:
 
     def delete_note(self):
         if not self.note:
-            raise KeyError("No note found.")
+            raise KeyError(f"{Fore.RED}[ERROR]{Style.RESET_ALL} No note found.")
         self.note = None
 
     def find_notes(self, query):
