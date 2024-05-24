@@ -1,10 +1,10 @@
-from command_handlers.handlers import *
-from libraries.storage import *
+from source.command_handlers.handlers import *
+from source.libraries.storage import *
+from source.libraries.help_info import message, dict_of_commands
+from source.libraries import *
+from source.libraries.wordcompleter import FirstWordCompleter
 from colorama import Fore, Style
-from libraries.help_info import message, dict_of_commands
-from libraries import *
 from prompt_toolkit import prompt
-from libraries.wordcompleter import FirstWordCompleter
 
 
 def handler(command, book, *args):

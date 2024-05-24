@@ -26,6 +26,7 @@ message = f"""\nYou can use this commands: \n
           """
 
 dict_of_commands = {
+                    "help": "Help info with all commands",
                     "hello": "Greetings",
                     "exit": "Closing the bot",
                     "add": "Adding contact - Enter [name] [10-digit phone number]",

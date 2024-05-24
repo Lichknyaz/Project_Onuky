@@ -2,7 +2,11 @@
 
 Bot will help your loved Granny to remember all information about family.
 
-To start the bot, run `main.py` file.
+### Installation:
+Installation is straightforward via pip in project folder:
+```
+pip install .
+```
 
 ### List of all functions:
 - Add,change and delete contacts, phone numbers, emails, home address, birthdays of loved ones
