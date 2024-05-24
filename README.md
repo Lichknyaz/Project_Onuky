@@ -16,7 +16,7 @@ To start the bot, run `main.py` file.
 - prompt-toolkit
 
 
-### Basic syntax with examples:
+### Basic syntax:
 - "hello"                                            to start using personal assistant;
 - "exit"                                             to close the personal assistant;
 - "add [name] [phone number]"                        to add contact;
