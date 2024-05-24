@@ -2,6 +2,8 @@
 
 Bot will help your loved Granny to remember all information about family.
 
+To start the bot, run `main.py` file.
+
 ### List of all functions:
 - Add,change and delete contacts, phone numbers, emails, home address, birthdays of loved ones
 - Calculate birthdays in the next days
