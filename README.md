@@ -11,7 +11,7 @@ To start the bot, run `main.py` file.
 - Search for any saved data.
 - Seach through the notes with any word or tags
 
-### Used packages:
+### Used libraries (see requirements.txt):
 - colorama
 - prompt-toolkit
 
