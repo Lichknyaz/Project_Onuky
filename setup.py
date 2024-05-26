@@ -10,7 +10,7 @@ setup(
     url='https://github.com/Lichknyaz/Project_Onuky_01.git',
     packages=find_namespace_packages(),
     include_package_data=True,
-    entry_points={"console_scripts": ["onuky = source.__main__:main"]},
+    entry_points={"console_scripts": ["onuky = source.main:main"]},
     install_requires=[
         'colorama>=0.4.0',
         "prompt_toolkit",
