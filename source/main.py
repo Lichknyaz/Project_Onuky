@@ -1,8 +1,8 @@
 from source.command_handlers.handlers import *
-from source.libraries.storage import *
-from source.libraries.help_info import message, dict_of_commands
-from source.libraries import *
-from source.libraries.wordcompleter import FirstWordCompleter
+from source.modules.storage import *
+from source.modules.help_info import message, dict_of_commands
+from source.modules import *
+from source.modules.wordcompleter import FirstWordCompleter
 from colorama import Fore, Style
 from prompt_toolkit import prompt
 

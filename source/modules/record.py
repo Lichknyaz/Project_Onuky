@@ -1,9 +1,9 @@
-from source.libraries.name import Name
-from source.libraries.phone import Phone
-from source.libraries.birthday import Birthday
-from source.libraries.user_email import Email
-from source.libraries.address import Address
-from source.libraries.notes import Note
+from source.modules.name import Name
+from source.modules.phone import Phone
+from source.modules.birthday import Birthday
+from source.modules.user_email import Email
+from source.modules.address import Address
+from source.modules.notes import Note
 from colorama import Fore, Style
 
 class Record:
