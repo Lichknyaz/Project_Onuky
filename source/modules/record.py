@@ -6,6 +6,7 @@ from source.modules.address import Address
 from source.modules.notes import Note
 from colorama import Fore, Style
 
+
 class Record:
     def __init__(self, name):
         self.name = Name(name)
@@ -19,23 +20,23 @@ class Record:
         contact_full = f"\nContact name: {self.name.value}"
 
         if len(self.phones) != 0: 
-            phones = f", phones: {'; '.join(p.value for p in self.phones)}"
+            phones = f",📞 phones: {'; '.join(p.value for p in self.phones)}"
             contact_full += phones
 
         if self.birthday: 
-            contact_birthday = f", Birthday date: {self.birthday}"
+            contact_birthday = f",🎂 Birthday date: {self.birthday}"
             contact_full += contact_birthday
 
         if self.email: 
-            email = f", email: {self.email.value}"
+            email = f",✉️  email: {self.email.value}"
             contact_full += email
         
         if self.address:
-            address = f", address: {self.address.value}"
+            address = f",🏠 address: {self.address.value}"
             contact_full += address
 
         if self.note:
-            contact_note = f", note: {self.note.value}"
+            contact_note = f",🗒️ note: {self.note.value}"
             contact_full += contact_note
 
         return contact_full
